@@ -20,5 +20,5 @@ public class Photo {
     private String url;
 
     @Field(type = FieldType.Date, format = DateFormat.date_hour_minute_second)
-    private LocalDateTime uploadTime;
+    private LocalDateTime uploadDate;
 }

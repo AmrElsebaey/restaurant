@@ -25,7 +25,7 @@ public class PhotoServiceImpl implements PhotoService {
 
         return Photo.builder()
                 .url(url)
-                .uploadTime(LocalDateTime.now())
+                .uploadDate(LocalDateTime.now())
                 .build();
     }
 
