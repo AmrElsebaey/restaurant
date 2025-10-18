@@ -1,0 +1,26 @@
+package com.elsebaey.restaurant.domain.dtos;
+
+import com.elsebaey.restaurant.domain.entities.Photo;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+public class ReviewDto {
+
+    private String id;
+    private String content;
+    private Float rating;
+    private LocalDateTime datePosted;
+    private LocalDateTime lastEdited;
+    private List<PhotoDto> photos = new ArrayList<>();
+    private UserDto writtenBy;
+}
