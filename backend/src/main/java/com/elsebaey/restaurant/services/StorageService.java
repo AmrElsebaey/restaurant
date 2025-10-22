@@ -1,7 +1,6 @@
-package com.elsebaey.restaurant.service;
+package com.elsebaey.restaurant.services;
 
 
-import org.springframework.boot.autoconfigure.web.ServerProperties;
 import org.springframework.core.io.Resource;
 import org.springframework.web.multipart.MultipartFile;
 

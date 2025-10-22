@@ -1,4 +1,4 @@
-package com.elsebaey.restaurant.service;
+package com.elsebaey.restaurant.services;
 
 import com.elsebaey.restaurant.domain.RestaurantCreateUpdateRequest;
 import com.elsebaey.restaurant.domain.entities.Restaurant;

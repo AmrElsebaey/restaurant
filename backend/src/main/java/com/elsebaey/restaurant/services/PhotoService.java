@@ -1,4 +1,4 @@
-package com.elsebaey.restaurant.service;
+package com.elsebaey.restaurant.services;
 
 import com.elsebaey.restaurant.domain.entities.Photo;
 import org.springframework.core.io.Resource;

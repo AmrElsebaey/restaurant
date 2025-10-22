@@ -1,8 +1,8 @@
-package com.elsebaey.restaurant.service.impl;
+package com.elsebaey.restaurant.services.impl;
 
 import com.elsebaey.restaurant.domain.GeoLocation;
 import com.elsebaey.restaurant.domain.entities.Address;
-import com.elsebaey.restaurant.service.GeoLocationService;
+import com.elsebaey.restaurant.services.GeoLocationService;
 import org.springframework.stereotype.Service;
 
 import java.util.Random;

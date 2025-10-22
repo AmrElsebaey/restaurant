@@ -3,7 +3,7 @@ package com.elsebaey.restaurant.controllers;
 import com.elsebaey.restaurant.domain.dtos.PhotoDto;
 import com.elsebaey.restaurant.domain.entities.Photo;
 import com.elsebaey.restaurant.mapper.PhotoMapper;
-import com.elsebaey.restaurant.service.PhotoService;
+import com.elsebaey.restaurant.services.PhotoService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.core.io.Resource;
 import org.springframework.http.HttpHeaders;

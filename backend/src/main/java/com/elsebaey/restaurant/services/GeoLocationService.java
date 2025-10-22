@@ -1,4 +1,4 @@
-package com.elsebaey.restaurant.service;
+package com.elsebaey.restaurant.services;
 
 import com.elsebaey.restaurant.domain.GeoLocation;
 import com.elsebaey.restaurant.domain.entities.Address;

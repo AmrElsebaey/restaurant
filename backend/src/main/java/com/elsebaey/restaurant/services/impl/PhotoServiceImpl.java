@@ -1,8 +1,8 @@
-package com.elsebaey.restaurant.service.impl;
+package com.elsebaey.restaurant.services.impl;
 
 import com.elsebaey.restaurant.domain.entities.Photo;
-import com.elsebaey.restaurant.service.PhotoService;
-import com.elsebaey.restaurant.service.StorageService;
+import com.elsebaey.restaurant.services.PhotoService;
+import com.elsebaey.restaurant.services.StorageService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Service;

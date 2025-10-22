@@ -1,7 +1,7 @@
-package com.elsebaey.restaurant.service.impl;
+package com.elsebaey.restaurant.services.impl;
 
 import com.elsebaey.restaurant.exceptions.StorageException;
-import com.elsebaey.restaurant.service.StorageService;
+import com.elsebaey.restaurant.services.StorageService;
 import jakarta.annotation.PostConstruct;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;

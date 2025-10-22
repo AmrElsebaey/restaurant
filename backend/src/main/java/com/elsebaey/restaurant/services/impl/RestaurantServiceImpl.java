@@ -1,4 +1,4 @@
-package com.elsebaey.restaurant.service.impl;
+package com.elsebaey.restaurant.services.impl;
 
 import com.elsebaey.restaurant.domain.GeoLocation;
 import com.elsebaey.restaurant.domain.RestaurantCreateUpdateRequest;
@@ -6,8 +6,8 @@ import com.elsebaey.restaurant.domain.entities.Address;
 import com.elsebaey.restaurant.domain.entities.Photo;
 import com.elsebaey.restaurant.domain.entities.Restaurant;
 import com.elsebaey.restaurant.repositories.RestaurantRepository;
-import com.elsebaey.restaurant.service.GeoLocationService;
-import com.elsebaey.restaurant.service.RestaurantService;
+import com.elsebaey.restaurant.services.GeoLocationService;
+import com.elsebaey.restaurant.services.RestaurantService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.elasticsearch.core.geo.GeoPoint;
 import org.springframework.stereotype.Service;
