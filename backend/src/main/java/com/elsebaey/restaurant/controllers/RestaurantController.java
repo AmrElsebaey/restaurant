@@ -47,4 +47,12 @@ public class RestaurantController {
                 radius, PageRequest.of(page - 1, size));
         return searchResults.map(restaurantMapper::toRestaurantSummaryDto);
     }
+
+    @GetMapping("/{restaurant_id}")
+    public ResponseEntity<RestaurantDto> getRestaurant(@PathVariable(name = "restaurant_id") String restaurantId) {
+        return restaurantService.getRestaurant(restaurantId)
+                .map(restaurantMapper::toRestaurantDto)
+                .map(ResponseEntity::ok)
+                .orElse(ResponseEntity.notFound().build());
+    }
 }
