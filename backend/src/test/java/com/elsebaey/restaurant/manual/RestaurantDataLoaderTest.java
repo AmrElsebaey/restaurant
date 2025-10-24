@@ -17,6 +17,7 @@ import org.springframework.core.io.ResourceLoader;
 import org.springframework.http.MediaType;
 import org.springframework.mock.web.MockMultipartFile;
 import org.springframework.test.annotation.Rollback;
+import org.springframework.test.context.ActiveProfiles;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
@@ -24,6 +25,7 @@ import java.util.Arrays;
 import java.util.List;
 
 @SpringBootTest
+@ActiveProfiles("test")
 public class RestaurantDataLoaderTest {
 
     @Autowired
@@ -75,7 +77,7 @@ public class RestaurantDataLoaderTest {
                         "The Golden Dragon",
                         "Chinese",
                         "+44 20 7123 4567",
-                        createAddress("12", "Gerrard Street", null, "London", "Greater London", "W1D 5PR", "United Kingdom"),
+                        createAddress("12", "Gerrard Street", "W1D 5PR"),
                         createStandardOperatingHours("11:30", "23:00", "11:30", "23:30"),
                         "golden-dragon.png"
                 ),
@@ -83,7 +85,7 @@ public class RestaurantDataLoaderTest {
                         "La Petite Maison",
                         "French",
                         "+44 20 7234 5678",
-                        createAddress("54", "Brook Street", null, "London", "Greater London", "W1K 4HR", "United Kingdom"),
+                        createAddress("54", "Brook Street", "W1K 4HR"),
                         createStandardOperatingHours("12:00", "22:30", "12:00", "23:00"),
                         "la-petit-maison.png"
                 ),
@@ -91,7 +93,7 @@ public class RestaurantDataLoaderTest {
                         "Raj Pavilion",
                         "Indian",
                         "+44 20 7345 6789",
-                        createAddress("27", "Brick Lane", null, "London", "Greater London", "E1 6PU", "United Kingdom"),
+                        createAddress("27", "Brick Lane", "E1 6PU"),
                         createStandardOperatingHours("12:00", "23:00", "12:00", "23:30"),
                         "raj-pavilion.png"
                 ),
@@ -99,7 +101,7 @@ public class RestaurantDataLoaderTest {
                         "Sushi Master",
                         "Japanese",
                         "+44 20 7456 7890",
-                        createAddress("8", "Poland Street", null, "London", "Greater London", "W1F 8PR", "United Kingdom"),
+                        createAddress("8", "Poland Street", "W1F 8PR"),
                         createStandardOperatingHours("11:30", "22:00", "11:30", "22:30"),
                         "sushi-master.png"
                 ),
@@ -107,7 +109,7 @@ public class RestaurantDataLoaderTest {
                         "The Rustic Olive",
                         "Italian",
                         "+44 20 7567 8901",
-                        createAddress("92", "Dean Street", null, "London", "Greater London", "W1D 3SR", "United Kingdom"),
+                        createAddress("92", "Dean Street", "W1D 3SR"),
                         createStandardOperatingHours("11:00", "23:00", "11:00", "23:30"),
                         "rustic-olive.png"
                 ),
@@ -115,7 +117,7 @@ public class RestaurantDataLoaderTest {
                         "El Toro",
                         "Spanish",
                         "+44 20 7678 9012",
-                        createAddress("15", "Charlotte Street", null, "London", "Greater London", "W1T 1RH", "United Kingdom"),
+                        createAddress("15", "Charlotte Street", "W1T 1RH"),
                         createStandardOperatingHours("12:00", "23:00", "12:00", "23:30"),
                         "el-toro.png"
                 ),
@@ -123,7 +125,7 @@ public class RestaurantDataLoaderTest {
                         "The Greek House",
                         "Greek",
                         "+44 20 7789 0123",
-                        createAddress("32", "Store Street", null, "London", "Greater London", "WC1E 7BS", "United Kingdom"),
+                        createAddress("32", "Store Street", "WC1E 7BS"),
                         createStandardOperatingHours("12:00", "22:30", "12:00", "23:00"),
                         "greek-house.png"
                 ),
@@ -131,7 +133,7 @@ public class RestaurantDataLoaderTest {
                         "Seoul Kitchen",
                         "Korean",
                         "+44 20 7890 1234",
-                        createAddress("71", "St John Street", null, "London", "Greater London", "EC1M 4AN", "United Kingdom"),
+                        createAddress("71", "St John Street", "EC1M 4AN"),
                         createStandardOperatingHours("11:30", "22:00", "11:30", "22:30"),
                         "seoul-kitchen.png"
                 ),
@@ -139,7 +141,7 @@ public class RestaurantDataLoaderTest {
                         "Thai Orchid",
                         "Thai",
                         "+44 20 7901 2345",
-                        createAddress("45", "Warren Street", null, "London", "Greater London", "W1T 6AD", "United Kingdom"),
+                        createAddress("45", "Warren Street", "W1T 6AD"),
                         createStandardOperatingHours("11:00", "22:30", "11:00", "23:00"),
                         "thai-orchid.png"
                 ),
@@ -147,7 +149,7 @@ public class RestaurantDataLoaderTest {
                         "The Burger Joint",
                         "American",
                         "+44 20 7012 3456",
-                        createAddress("88", "Commercial Street", null, "London", "Greater London", "E1 6LY", "United Kingdom"),
+                        createAddress("88", "Commercial Street", "E1 6LY"),
                         createStandardOperatingHours("11:00", "23:00", "11:00", "23:30"),
                         "burger-joint.png"
                 )
@@ -175,20 +177,16 @@ public class RestaurantDataLoaderTest {
     private Address createAddress(
             String streetNumber,
             String streetName,
-            String unit,
-            String city,
-            String state,
-            String postalCode,
-            String country
+            String postalCode
     ) {
         Address address = new Address();
         address.setStreetNumber(streetNumber);
         address.setStreetName(streetName);
-        address.setUnit(unit);
-        address.setCity(city);
-        address.setState(state);
+        address.setUnit(null);
+        address.setCity("London");
+        address.setState("Greater London");
         address.setPostalCode(postalCode);
-        address.setCountry(country);
+        address.setCountry("United Kingdom");
         return address;
     }
 

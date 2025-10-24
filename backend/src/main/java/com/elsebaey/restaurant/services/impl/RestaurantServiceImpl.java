@@ -43,6 +43,7 @@ public class RestaurantServiceImpl implements RestaurantService {
                 .cuisineType(request.getCuisineType())
                 .contactInformation(request.getContactInformation())
                 .geoLocation(geoPoint)
+                .address(address)
                 .operatingHours(request.getOperatingHours())
                 .averageRating(0f)
                 .photos(photos)
