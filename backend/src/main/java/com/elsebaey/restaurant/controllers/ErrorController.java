@@ -2,6 +2,7 @@ package com.elsebaey.restaurant.controllers;
 
 import com.elsebaey.restaurant.domain.dtos.ErrorDto;
 import com.elsebaey.restaurant.exceptions.BaseException;
+import com.elsebaey.restaurant.exceptions.RestaurantNotFoundException;
 import com.elsebaey.restaurant.exceptions.StorageException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
@@ -17,6 +18,16 @@ import java.util.stream.Collectors;
 @ControllerAdvice
 @Slf4j
 public class ErrorController {
+
+    @ExceptionHandler(RestaurantNotFoundException.class)
+    public ResponseEntity<ErrorDto> handleRestaurantNotFoundException(RestaurantNotFoundException ex) {
+        log.error("Restaurant not found exception", ex);
+        ErrorDto errorDto = ErrorDto.builder()
+                .status(HttpStatus.NOT_FOUND.value())
+                .message("Restaurant not found")
+                .build();
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(errorDto);
+    }
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity<ErrorDto> handleMethodArgumentNotValidException(MethodArgumentNotValidException ex) {
