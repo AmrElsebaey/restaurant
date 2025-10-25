@@ -3,6 +3,7 @@ package com.elsebaey.restaurant.controllers;
 import com.elsebaey.restaurant.domain.dtos.ErrorDto;
 import com.elsebaey.restaurant.exceptions.BaseException;
 import com.elsebaey.restaurant.exceptions.RestaurantNotFoundException;
+import com.elsebaey.restaurant.exceptions.ReviewNotAllowedException;
 import com.elsebaey.restaurant.exceptions.StorageException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
@@ -18,6 +19,16 @@ import java.util.stream.Collectors;
 @ControllerAdvice
 @Slf4j
 public class ErrorController {
+
+    @ExceptionHandler(ReviewNotAllowedException.class)
+    public ResponseEntity<ErrorDto> handleReviewNotAllowedException(ReviewNotAllowedException ex) {
+        log.error("Review not allowed exception", ex);
+        ErrorDto errorDto = ErrorDto.builder()
+                .status(HttpStatus.BAD_REQUEST.value())
+                .message("Review not allowed")
+                .build();
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errorDto);
+    }
 
     @ExceptionHandler(RestaurantNotFoundException.class)
     public ResponseEntity<ErrorDto> handleRestaurantNotFoundException(RestaurantNotFoundException ex) {
