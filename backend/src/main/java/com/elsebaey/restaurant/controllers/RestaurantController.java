@@ -60,7 +60,7 @@ public class RestaurantController {
     public ResponseEntity<RestaurantDto> updateRestaurant(
             @PathVariable(name = "restaurant_id") String restaurantId,
             @Valid @RequestBody RestaurantCreateUpdateRequestDto request
-    ) {retrieve
+    ) {
         RestaurantCreateUpdateRequest restaurantCreateUpdateRequest = restaurantMapper.toRestaurantCreateUpdateRequest(request);
         Restaurant restaurant = restaurantService.updateRestaurant(restaurantId, restaurantCreateUpdateRequest);
         return ResponseEntity.ok(restaurantMapper.toRestaurantDto(restaurant));
