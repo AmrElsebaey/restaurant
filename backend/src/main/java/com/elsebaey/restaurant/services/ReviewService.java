@@ -18,5 +18,7 @@ public interface ReviewService {
 
     Review updateReview(User author, String restaurantId, String reviewId, ReviewCreateUpdateRequest review);
 
+    void deleteReview(String restaurantId, String reviewId);
+
 
 }
